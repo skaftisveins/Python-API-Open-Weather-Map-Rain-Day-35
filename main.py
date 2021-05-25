@@ -9,7 +9,7 @@ weather_params = {
     "exclude": "current,minutely,daily"
 }
 
-response = requests.get("https://api.openweathermap.org/data/2.5/onecall", weather_params)
+response = requests.get(owm_endpoint, weather_params)
 response.raise_for_status()
 
 print(f"HTTP Status Code: {response.status_code}")
@@ -28,6 +28,6 @@ if "Rain" in weather_cond:
             to=my_phone_number
         )
     print(message.status)
-    
+
 else:
     print("It looks like it's not raining today, for the next 12 hours at least..")
